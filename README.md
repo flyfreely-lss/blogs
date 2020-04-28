@@ -1,2 +1,2 @@
-# blogs
-blog;javascript
+# 天外来的博客
+
