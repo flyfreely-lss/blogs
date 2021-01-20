@@ -53,6 +53,8 @@
 
 - componentWillMount
 
+v16.3 已过时
+
 `render`之前调用，只会调用一次，很少使用。
 
 `setState`不会引起重新渲染，因为在执行的时候还未到达`render`阶段， 使用同步的`setState`。
