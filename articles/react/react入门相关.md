@@ -45,13 +45,19 @@
 
 ## 生命周期
 
+[React v16.3及以后生命周期图]: https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+React16.3之前生命周期图：
+
+![image-20210121182606642](/Users/lishasha/Documents/gitspace/blogs/articles/react/images//image-20210121182606642.png)
+
 **挂载阶段**
 
 - constructor(props)
 
 作用：初始化 state，this 绑定
 
-- componentWillMount
+- ~~componentWillMount~~
 
 v16.3 已过时
 
@@ -61,6 +67,7 @@ v16.3 已过时
 
 作用：产生副作用，如：订阅
 
+- static getDerivedStateFromProps()
 - render
 
 类声明时唯一必要的方法。不负责组件的实际渲染 工作，知识返回一个UI的描述。
@@ -77,9 +84,45 @@ v16.3 已过时
 
 作用：
 
-	1. 进行数据请求，可以保证获取到数据时，组件已经处于挂在状态。直接操作真实dom，初始化第三方库
- 	2. 保证在任何情况下，只会调用一次，不会发送多余的数据请求。
+	1. 获取数据，获取真实dom；
+ 	2. 进行数据请求，进行数据更改，可以保证获取到数据时，组件已经处于挂在状态。保证在任何情况下，只会调用一次，不会发送多余的数据请求；
+ 	3. 直接操作真实dom，初始化第三方库。
 
 **更新阶段**
 
+- ~~componentWillReceiveProps(nextProps)~~
+
+props引起的组件更新过程。
+
+只要父组件的`render`函数被调用，无论父组件传递给子组件的`props`有没有改变，都会触发。 
+
+- static getDerivedStateFromProps()
+
+- shouldComponentUpdate
+
+尽量遵循默认行为，状态改变 ，组件就会被重新渲染。
+
+作用：减少组件不必要的渲染，提高性能。
+
+- ~~componentWillUpdate(nextProps, nextState)~~
+
+很少使用，不能调用`setState`
+
+- render
+- getSnapshotBeforeUpdate()
+- componentDidUpdate(prevProps, prevState)
+
+更新完成，有机会操作`dom`
+
+作用：根据需要判断是否发送网络请求。
+
 **卸载阶段**
+
+- componentWillUnmount
+
+作用：做一些清理工作，如：定时器、移除事件监听、取消网络请求。
+
+**错误处理阶段**
+
+- static getDerivedStateFromError()
+- componentDidCatch(error, info)
