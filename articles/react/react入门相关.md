@@ -45,11 +45,11 @@
 
 ## 生命周期
 
-[React v16.3及以后生命周期图]: https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+[React v16.3及以后生命周期图](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
 React16.3之前生命周期图：
 
-![image-20210121182606642](/Users/lishasha/Documents/gitspace/blogs/articles/react/images//image-20210121182606642.png)
+![React16.3之前生命周期图](/Users/lishasha/Documents/gitspace/blogs/articles/react/images//image-20210121182606642.png)
 
 **挂载阶段**
 
