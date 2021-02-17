@@ -34,6 +34,8 @@
    <button onClick={() => this.handleClick()}></button>
    ```
 
+值得注意的是，事件传参不可避免的需要使用上述第2或第4种方式进行事件绑定。
+
 ## state介绍
 
 **state更新时机**
