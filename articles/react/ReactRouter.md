@@ -38,19 +38,19 @@ Web:
 
 HashRouter vs. BrowserRouter 区别
 
-- **URL的表现形式不一样**
+- URL的表现形式不一样
 
 BrowseRouter：http://www.example.com/info
 
 HashRouter：http://www.example.com/#/info
 
-- **底层实现不一样**
+- 底层实现不一样
 
 BrowserRouter使用HTML5的history API，保证UI界面和URL同步。 页面之间传通过state的方式传值给下一个页面的时候，当到达新的页面，刷新或者后退之后再前进，BrowseRouter传递的值依然可以从 window.history.state 中得到。
 
 HashRouter使用URL的哈希部分来保持UI和URL的同步。刷新或者后退之后再前进，无法从window.location中得到 state 的值，所以当刷新路由后state值会丢失导致页面显示异常。
 
-- **BrowseRouter 需要server端配置，BrowserRouter不需要**
+- BrowseRouter 需要server端配置，BrowserRouter不需要
 
 参考地址：[React-Router browserHistory浏览器刷新出现页面404解决方案](https://www.thinktxt.com/react/2017/02/26/react-router-browserHistory-refresh-404-solution.html)
 
