@@ -60,9 +60,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
 	plugins: [
 	  new HtmlWebpackPlugin({
-         template: "./src/index.html"
-	  }),
-   	  ...
+      template: "./src/index.html"
+    }),
+    ...
 	]
 }
 ```
@@ -79,7 +79,7 @@ module.exports = {
 module.exports = {
 	mode: "production|development",
  	//开发模式推荐 cheap-module-evel-source-map（会暴露源码）
-    //生产环境下推荐 cheap-module-source-map(提示友好，不暴露源码)
+  //生产环境下推荐 cheap-module-source-map(提示友好，不暴露源码)
  	devtool: "source-map"
 }
 ```
@@ -109,7 +109,7 @@ npm install webpack-dev-server
 }
 //webpack.config.js
 module.exports = {
-	mode: "production|development",
+  mode: "production|development",
  	devServer: {
     //定义服务访问目录(在dist目录下启个服务)
 	  contentBase: path.join(__dirname, "dist"),
@@ -289,9 +289,9 @@ module.exports = merge(baseConfig, devConfig)
 //package.json
 {
     "scripts": {
-	  	"build:prod": "webpack --config ./config/webpack.prod.js",
+      "build:prod": "webpack --config ./config/webpack.prod.js",
       "build:dev": "webpack-dev-server --config ./config/webpack.dev.jss",
- 	  	"dev:server": "webpack-dev-server --config ./config/webpack.dev.js" //文件更改后，可以自动打包
+      "dev:server": "webpack-dev-server --config ./config/webpack.dev.js" //文件更改后，可以自动打包
 	}
 }
 ```
