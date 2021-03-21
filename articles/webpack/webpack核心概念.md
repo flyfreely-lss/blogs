@@ -2,8 +2,6 @@
 
 webpack基于nodejs开发的，所以书写语法符合commonJs规范。
 
-
-
 ## 核心概念：
 
 loader、plugins、Entry、Output、SourceMap、DevServer、Hmr、Babel
@@ -12,22 +10,22 @@ loader、plugins、Entry、Output、SourceMap、DevServer、Hmr、Babel
 
 ```javascript
 module.exports = { 
-module: {
-	rules: [
- 	  {
-	    test: /\.(jpg|png|gif)$/,
-	  use: {
-         loader: "fole-loader",
-         options: {
-				name: "[name].[hash:5].[ext]", //占位符
-  			outputPath: "images", //基于前面配置的output路径
-    		limit: 2048 //小于该大小的图片会被处理成base64格式,直接放在被引入的文件中，以达到减少网络请求的目的;大于的才会被单独打包(生成单独的图片文件)
-	     }
-	  }
-	  },
-      ...
-	]
-}
+  module: {
+    rules: [
+      {
+        test: /\.(jpg|png|gif)$/,
+        use: {
+          loader: "fole-loader",
+          options: {
+              name: "[name].[hash:5].[ext]", //占位符
+              outputPath: "images", //基于前面配置的output路径
+              limit: 2048 //小于该大小的图片会被处理成base64格式,直接放在被引入的文件中，以达到减少网络请求的目的;大于的才会被单独打包(生成单独的图片文件)
+          }
+        }
+      },
+        ...
+    ]
+  }
 } 
 ```
 
@@ -105,19 +103,19 @@ module.exports = {
 npm install webpack-dev-server
 {
     "scripts": {
-	  "build": "webpack",
- 	  "dev:server": "webpack-dev-server" //文件更改后，可以自动打包
-	}
+      "build": "webpack",
+      "dev:server": "webpack-dev-server" //文件更改后，可以自动打包
+    }
 }
 //webpack.config.js
 module.exports = {
 	mode: "production|development",
  	devServer: {
-      //定义服务访问目录(在dist目录下启个服务)
+    //定义服务访问目录(在dist目录下启个服务)
 	  contentBase: path.join(__dirname, "dist"),
 	  port: 8081,
-      hot: true
-     //代理
+    hot: true
+    //代理
 	  //proxy: {
        //  "/api": "ip:port"
 	  //}
@@ -132,7 +130,7 @@ import {list} from './list'
 if(module.hot){
 	module.hot.accept("./list", () => {
 	  console.log('更新list文件模块');
-   list()
+   	list()
 	})
  //关闭热更新
  module.hot.decline("./list")
@@ -171,14 +169,13 @@ module: {
          test: /\.js$/,
          loader: 'babel-loader',
          options: {
-             // 转换ES5+语法
-		//presets: [["@babel/preset-env", {
-      	  //必须同时设置corejs:3  默认使用corejs:2
-		  //useBuiltIns: 'usage', //可选：usage|entry|false
-    	  //corejs: 3
-		//}]]
-  		
-	     },
+           // 转换ES5+语法
+					 //presets: [["@babel/preset-env", {
+      	   //必须同时设置corejs:3  默认使用corejs:2
+           //useBuiltIns: 'usage', //可选：usage|entry|false
+    	  	 //corejs: 3
+					//}]]
+         },
         exclude: /node_modules/
 	  }
 	]
