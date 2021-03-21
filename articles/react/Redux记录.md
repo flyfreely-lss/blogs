@@ -52,7 +52,7 @@ Redux 只有一个单一的 store。
 2. state是只读的，唯一改变的方法是触发 action
 3. reducer 使用纯函数来执行修改， 为了描述 action 如何改变 state tree ，你需要编写 [reducers](https://cn.redux.js.org/docs/Glossary.html#reducer)。
 
-## 实际应用s
+## 实际应用
 
 副作用操作，使用 Redux-thunk，进行不纯的操作。
 
