@@ -128,8 +128,8 @@ module.exports = {
 //js文件
 import {list} from './list'
 if(module.hot){
-	module.hot.accept("./list", () => {
-	  console.log('更新list文件模块');
+  module.hot.accept("./list", () => {
+    console.log('更新list文件模块');
    	list()
 	})
  //关闭热更新
@@ -165,18 +165,18 @@ npm install @babel/plugin-transform-runtime @babel/runtime-corejs3 --save-dev
 //webpack.config.js
 module: {
 	rules: [
-	  {
-         test: /\.js$/,
-         loader: 'babel-loader',
-         options: {
-           // 转换ES5+语法
-					 //presets: [["@babel/preset-env", {
-      	   //必须同时设置corejs:3  默认使用corejs:2
-           //useBuiltIns: 'usage', //可选：usage|entry|false
-    	  	 //corejs: 3
-					//}]]
-         },
-        exclude: /node_modules/
+    {
+      test: /\.js$/,
+      loader: 'babel-loader',
+      options: {
+        // 转换ES5+语法
+        //presets: [["@babel/preset-env", {
+        //必须同时设置corejs:3  默认使用corejs:2
+        //useBuiltIns: 'usage', //可选：usage|entry|false
+        //corejs: 3
+        //}]]
+      },
+      exclude: /node_modules/
 	  }
 	]
 }
@@ -184,11 +184,11 @@ module: {
 //.babelrc
 {
 	plugins: [
-	  [
-	    "@babel/plugin-transform-runtime",
-       { corejs: 3 }
-	  ]
-	]	
+    [
+      "@babel/plugin-transform-runtime",
+      { corejs: 3 }
+    ]
+  ]	
 }
 ```
 
@@ -264,18 +264,19 @@ module.exports = merge(baseConfig, prodConfig)
 //webpack.dev.js
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.base.js')
+
 const devConfig = {
-    mode: "development",
-    devtool: "cheap-module-source-map",
-    devServer: {
-      //定义服务访问目录(在dist目录下启个服务)
-	  contentBase: path.join(__dirname, "dist"),
-	  port: 8081,
-      //hot: true
-     //代理
-	  //proxy: {
-       //  "/api": "ip:port"
-	  //}
+  mode: "development",
+  devtool: "cheap-module-source-map",
+  devServer: {
+    //定义服务访问目录(在dist目录下启个服务)
+    contentBase: path.join(__dirname, "dist"),
+    port: 8081,
+    //hot: true
+    //代理
+    //proxy: {
+      //"/api": "ip:port"
+    //}
 	},
  	plugins: [
 	  new webpack.HotModuleReplacementPlugin()
@@ -288,9 +289,9 @@ module.exports = merge(baseConfig, devConfig)
 //package.json
 {
     "scripts": {
-	  "build:prod": "webpack --config ./config/webpack.prod.js",
-   "build:dev": "webpack-dev-server --config ./config/webpack.dev.jss",
- 	  "dev:server": "webpack-dev-server --config ./config/webpack.dev.js" //文件更改后，可以自动打包
+	  	"build:prod": "webpack --config ./config/webpack.prod.js",
+      "build:dev": "webpack-dev-server --config ./config/webpack.dev.jss",
+ 	  	"dev:server": "webpack-dev-server --config ./config/webpack.dev.js" //文件更改后，可以自动打包
 	}
 }
 ```
@@ -330,11 +331,11 @@ import(/*webpackChunkName:'jquery'*/'jquery').then((default:$) => {
 
 //.babelrc
 {
-	plugins: [
+  plugins: [
     "@babel/plugin-syntax-dynamic-import",
 	  [
 	    "@babel/plugin-transform-runtime",
-       { corejs: 3 }
+      { corejs: 3 }
 	  ]
 	]	
 }
@@ -370,8 +371,8 @@ const prodConfig = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-    filename: "[name].[hash:5].css"
- 	 })
+    	filename: "[name].[hash:5].css"
+ 	 	})
   ],
   module: {
     rules: [
